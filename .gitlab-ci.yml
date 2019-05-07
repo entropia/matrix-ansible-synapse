@@ -5,12 +5,14 @@ before_script:
   - apt-get update -qy
   - apt-get install -y python-dev python-pip
   - git submodule update --init
-  - pip install --upgrade ansible ansible-lint
+  - pip install --upgrade ansible ansible-lint molecule
   - ansible --version
   - ansible-lint --version
+  - molecule --version
 
 stages:
   - ansible-lint
+  - molecule-lint
   - ansible-syntax-check
 
 ansible-lint-pip:
@@ -22,3 +24,8 @@ ansible-lint-docker:
   stage: ansible-lint
   script:
     - ansible-lint tests/test-docker.yml
+
+molecule-lint:
+  stage: molecule-lint
+  script:
+    -  molecule lint
