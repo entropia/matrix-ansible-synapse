@@ -5,7 +5,7 @@ matrix_synapse_base_config:
   tls_certificate_path: "{{ matrix_synapse_base_path }}/tls/{{ matrix_server_name }}.crt"
   tls_private_key_path: "{{ matrix_synapse_base_path }}/tls/{{ matrix_server_name }}.key"
   acme:
-    enabled: false 
+    enabled: false
     url: https://acme-v01.api.letsencrypt.org/directory
     port: 80
     bind_addresses: ['::', '0.0.0.0']
@@ -132,7 +132,7 @@ matrix_synapse_base_config:
   password_config:
     enabled: true
   push:
-    include_content: false 
+    include_content: false
   enable_group_creation: true
   alias_creation_rules:
     - user_id: "*"
