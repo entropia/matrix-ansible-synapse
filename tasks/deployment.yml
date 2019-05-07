@@ -52,7 +52,7 @@
         virtualenv_python: "python{{ matrix_synapse_python_version }}"
       when: clone_synapse.changed
       tags:
-        - skip_ansible_lint # skip when clause
+        - skip_ansible_lint  # skip when clause
         - pre_install
       notify: restart matrix-synapse
   when: matrix_synapse_deployment_method == "pip"

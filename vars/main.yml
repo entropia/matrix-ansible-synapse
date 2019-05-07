@@ -121,7 +121,7 @@ matrix_synapse_base_config:
   expire_access_token: False
   signing_key_path: "{{ matrix_synapse_signing_key_path }}"
   old_signing_keys: {}
-  key_refresh_interval: "1d" # 1 Day.
+  key_refresh_interval: "1d"  # 1 Day.
   # TODO: More servers should be added
   perspectives:
     servers:
