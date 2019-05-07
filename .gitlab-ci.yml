@@ -28,4 +28,4 @@ ansible-lint-docker:
 molecule-lint:
   stage: molecule-lint
   script:
-    -  molecule lint
+    - molecule lint
