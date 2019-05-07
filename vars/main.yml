@@ -63,40 +63,40 @@ matrix_synapse_base_config:
   max_image_pixels: "32M"
   dynamic_thumbnails: false
   thumbnail_sizes:
-  - width: 32
-    height: 32
-    method: crop
-  - width: 96
-    height: 96
-    method: crop
-  - width: 320
-    height: 240
-    method: scale
-  - width: 640
-    height: 480
-    method: scale
-  - width: 800
-    height: 600
-    method: scale
-  url_preview_enabled: true 
+    - width: 32
+      height: 32
+      method: crop
+    - width: 96
+      height: 96
+      method: crop
+    - width: 320
+      height: 240
+      method: scale
+    - width: 640
+      height: 480
+      method: scale
+    - width: 800
+      height: 600
+      method: scale
+  url_preview_enabled: true
   url_preview_ip_range_blacklist:
-  - '127.0.0.0/8'
-  - '10.0.0.0/8'
-  - '172.16.0.0/12'
-  - '192.168.0.0/16'
-  - '100.64.0.0/10'
-  - '169.254.0.0/16'
-  - '::1/128'
-  - 'fe80::/64'
-  - 'fc00::/7'
+    - '127.0.0.0/8'
+    - '10.0.0.0/8'
+    - '172.16.0.0/12'
+    - '192.168.0.0/16'
+    - '100.64.0.0/10'
+    - '169.254.0.0/16'
+    - '::1/128'
+    - 'fe80::/64'
+    - 'fc00::/7'
   url_preview_url_blacklist:
-  - username: '*'
-  - netloc: 'google.com'
-  - netloc: '*.google.com'
-  - netloc: 'twitter.com'
-  - netloc: '*.twitter.com'
-  - netloc: 't.co'
-  - netloc: '*.t.co'
+    - username: '*'
+    - netloc: 'google.com'
+    - netloc: '*.google.com'
+    - netloc: 'twitter.com'
+    - netloc: '*.twitter.com'
+    - netloc: 't.co'
+    - netloc: '*.t.co'
   max_spider_size: "10M"
   enable_registration: False
   registration_shared_secret: >
@@ -105,16 +105,16 @@ matrix_synapse_base_config:
   bcrypt_rounds: 12
   allow_guest_access: False
   trusted_third_party_id_servers:
-      - matrix.org
-      - vector.im
+    - matrix.org
+    - vector.im
   autocreate_auto_join_rooms: true
   enable_metrics: False
-  report_stats: "{{ matrix_synapse_report_stats }}" 
+  report_stats: "{{ matrix_synapse_report_stats }}"
   room_invite_state_types:
-      - "m.room.join_rules"
-      - "m.room.canonical_alias"
-      - "m.room.avatar"
-      - "m.room.name"
+    - "m.room.join_rules"
+    - "m.room.canonical_alias"
+    - "m.room.avatar"
+    - "m.room.name"
   app_service_config_files: []
   track_appservice_user_ips: False
   macaroon_secret_key: "{{ macaroon_file.content | b64decode }}"
@@ -135,6 +135,6 @@ matrix_synapse_base_config:
     include_content: false 
   enable_group_creation: true
   alias_creation_rules:
-      - user_id: "*"
-        alias: "*"
-        action: allow
+    - user_id: "*"
+      alias: "*"
+      action: allow
