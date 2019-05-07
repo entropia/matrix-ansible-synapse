@@ -27,5 +27,3 @@
     group: synapse
   notify:
     - "restart matrix-synapse"
-
-
