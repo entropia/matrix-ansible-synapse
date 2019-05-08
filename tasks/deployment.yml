@@ -16,6 +16,7 @@
           - libxslt1-dev
           - git
           - libpq-dev
+          - rsyslog
         state: present
         cache_valid_time: 1800
       tags:
