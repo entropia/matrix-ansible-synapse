@@ -1,4 +1,5 @@
 # matrix-synapse
+[![Build Status](https://travis-ci.org/madonius/matrix-ansible-synapse.svg?branch=master)](https://travis-ci.org/madonius/matrix-ansible-synapse)
 
 Install a matrix synapse server.
 
