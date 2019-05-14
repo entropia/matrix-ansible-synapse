@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
   options:
-    config-file: molecule/default/yamllint.yml
+    config-file: molecule/docker/yamllint.yml
 platforms:
   - name: instance
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible"
@@ -22,7 +22,7 @@ provisioner:
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
 scenario:
-  name: default
+  name: docker
 verifier:
   name: testinfra
   lint:
