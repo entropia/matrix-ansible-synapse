@@ -13,8 +13,7 @@ install:
 
 before_script:
   - cd ../
-  # use the ansible galaxy role name
-  - mv $ROLE_NAME madonius.matrix_synapse
+  - mv madonius/$ROLE_NAME madonius.matrix_synapse
   - cd madonius.matrix_synapse
 
 script:
