@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Systemdtest
+      systemd:
+        daemon_reload: yes
