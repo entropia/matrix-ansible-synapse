@@ -11,5 +11,9 @@ env:
 install:
   - pip install molecule docker
 
-script:
-  - molecule test
+jobs:
+  include:
+    - stage: pip
+      script: molecule test
+    - stage: docker
+      script: molecule test --scenario-name docker
