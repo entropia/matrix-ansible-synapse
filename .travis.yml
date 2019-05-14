@@ -11,10 +11,5 @@ env:
 install:
   - pip install molecule docker
 
-before_script:
-  - cd ../
-  - mv madonius/$ROLE_NAME madonius.matrix_synapse
-  - cd madonius.matrix_synapse
-
 script:
   - molecule test
