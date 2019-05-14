@@ -8,6 +8,13 @@
     dbpw: synapse_password
     matrix_synapse_deployment_method: docker
     matrix_synapse_supervision_method: docker
+  pre_tasks:
+    - name: Install role requirements
+      apt:
+        name:
+          - python-pip
+          - rsyslog
+          - logrotate
   tasks:
     - name: Flush handlers
       meta: flush_handlers

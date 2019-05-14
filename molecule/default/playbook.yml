@@ -6,6 +6,13 @@
     dbname: synapse
     dbuser: synapse_user
     dbpw: synapse_password
+  pre_tasks:
+    - name: Install role requirements
+      apt:
+        name:
+          - python-pip
+          - rsyslog
+          - logrotate
   tasks:
     - name: Flush handlers
       meta: flush_handlers
