@@ -29,6 +29,7 @@
           - lxml
           - psycopg2-binary
           - mock
+          - jinja2
         virtualenv: "{{ matrix_synapse_base_path }}/env"
         virtualenv_python: "python{{ matrix_synapse_python_version }}"
         extra_args: --upgrade
