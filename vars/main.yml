@@ -49,6 +49,7 @@ matrix_synapse_base_config:
       host: "{{ matrix_synapse_pg_host }}"
       cp_min: 5
       cp_max: 10
+  log_config: "{{ matrix_synapse_base_path }}/log.config"
   event_cache_size: "10K"
   rc_messages_per_second: 0.2
   rc_message_burst_count: 10.0
