@@ -41,7 +41,7 @@
       postgresql_hba_entries:
         - { type: local, database: all, user: all, auth_method: trust }
         - { type: host, database: "{{ dbname }}", user: "{{ dbuser }}", address: "172.17.0.1/16", auth_method: md5 }
-    - role: matrix-ansible-synapse
+    - role: synapse
       matrix_server_name: localhost
       matrix_synapse_report_stats: false
       matrix_synapse_pg_host: 172.17.0.1

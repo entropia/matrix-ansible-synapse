@@ -33,7 +33,7 @@
       postgresql_global_config_options:
         - option: listen_addresses
           value: "*"
-    - role: matrix-ansible-synapse
+    - role: synapse
       matrix_server_name: localhost
       matrix_synapse_report_stats: false
       matrix_synapse_pg_host: localhost
