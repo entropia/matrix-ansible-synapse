@@ -24,6 +24,9 @@
       when: matrix_synapse_version != "v"~(api_version.content | from_json).server.version
   roles:
     - role: geerlingguy.pip
+      pip_package: python3-pip
+      pip_install_packages:
+        - name: psycopg2-binary
     - role: geerlingguy.postgresql
       postgresql_databases:
         - name: "{{ dbname }}"
@@ -33,7 +36,7 @@
       postgresql_global_config_options:
         - option: listen_addresses
           value: "*"
-    - role: matrix-ansible-synapse
+    - role: synapse
       matrix_server_name: localhost
       matrix_synapse_report_stats: false
       matrix_synapse_pg_host: localhost
