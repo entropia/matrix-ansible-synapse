@@ -1,4 +1,11 @@
 ---
+matrix_synapse_docker_volumes: "{{ matrix_synapse_base_docker_volumes + matrix_synapse_extra_docker_volumes }}"
+matrix_synapse_base_docker_volumes:
+  - "{{ matrix_synapse_config.media_store_path }}:{{ matrix_synapse_config.media_store_path }}"
+  - "{{ matrix_synapse_config.uploads_path }}:{{ matrix_synapse_config.uploads_path }}"
+  - "{{ matrix_synapse_base_path }}/homeserver.yaml:{{ matrix_synapse_base_path }}/homeserver.yaml"
+  - "{{ matrix_synapse_base_path }}/log.config:{{ matrix_synapse_base_path }}/log.config"
+  - "{{ matrix_synapse_base_path }}/tls:{{ matrix_synapse_base_path }}/tls"
 matrix_synapse_config: "{{ matrix_synapse_base_config | combine(matrix_synapse_extra_config, recursive=True) }}"
 matrix_synapse_base_config:
   server_name: "{{ matrix_server_name }}"

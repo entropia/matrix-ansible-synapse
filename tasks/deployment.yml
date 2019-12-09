@@ -69,10 +69,5 @@
       - "-c"
       - "{{ matrix_synapse_base_path }}/homeserver.yaml"
     user: "{{ synapse_user.uid }}:{{ synapse_user.group }}"
-    volumes:
-      - "{{ matrix_synapse_config.media_store_path }}:{{ matrix_synapse_config.media_store_path }}"
-      - "{{ matrix_synapse_config.uploads_path }}:{{ matrix_synapse_config.uploads_path }}"
-      - "{{ matrix_synapse_base_path }}/homeserver.yaml:{{ matrix_synapse_base_path }}/homeserver.yaml"
-      - "{{ matrix_synapse_base_path }}/log.config:{{ matrix_synapse_base_path }}/log.config"
-      - "{{ matrix_synapse_base_path }}/tls:{{ matrix_synapse_base_path }}/tls"
+    volumes: "{{ matrix_synapse_docker_volumes }}"
   when: matrix_synapse_deployment_method == "docker"
