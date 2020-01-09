@@ -56,7 +56,7 @@
 - name: install synapse with docker
   docker_container:
     name: synapse
-    image: "docker.io/matrixdotorg/synapse:{{ matrix_synapse_version }}"
+    image: "{{ matrix_synapse_container_ref }}:{{ matrix_synapse_version }}"
     ports: "{{ matrix_synapse_docker_ports }}"
     labels: "{{ matrix_synapse_docker_labels }}"
     restart_policy: unless-stopped
@@ -69,9 +69,5 @@
       - "-c"
       - "{{ matrix_synapse_base_path }}/homeserver.yaml"
     user: "{{ synapse_user.uid }}:{{ synapse_user.group }}"
-    volumes:
-      - "{{ matrix_synapse_config.media_store_path }}:{{ matrix_synapse_config.media_store_path }}"
-      - "{{ matrix_synapse_config.uploads_path }}:{{ matrix_synapse_config.uploads_path }}"
-      - "{{ matrix_synapse_base_path }}/homeserver.yaml:{{ matrix_synapse_base_path }}/homeserver.yaml"
-      - "{{ matrix_synapse_base_path }}/tls:{{ matrix_synapse_base_path }}/tls"
+    volumes: "{{ matrix_synapse_docker_volumes }}"
   when: matrix_synapse_deployment_method == "docker"

@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.define "pip" do |pip| 
+  config.vm.define "pip-stretch" do |pip|
     pip.vm.box = "debian/stretch64"
 
     pip.vm.network "forwarded_port", guest: 8008, host: 8008
@@ -10,16 +10,40 @@ Vagrant.configure("2") do |config|
 
     pip.vm.provision "ansible" do |ansible|
       ansible.playbook = "test-pip.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
     end
   end
-  config.vm.define "docker" do |docker| 
+  config.vm.define "pip-buster" do |pip|
+    pip.vm.box = "debian/buster64"
+
+    pip.vm.network "forwarded_port", guest: 8008, host: 8009
+    pip.vm.network "forwarded_port", guest: 8448, host: 8449
+
+    pip.vm.provision "ansible" do |ansible|
+      ansible.playbook = "test-pip.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
+    end
+  end
+  config.vm.define "docker-stretch" do |docker|
     docker.vm.box = "debian/stretch64"
 
-    docker.vm.network "forwarded_port", guest: 8008, host: 8009
-    docker.vm.network "forwarded_port", guest: 8448, host: 8449
+    docker.vm.network "forwarded_port", guest: 8008, host: 8010
+    docker.vm.network "forwarded_port", guest: 8448, host: 8450
 
     docker.vm.provision "ansible" do |ansible|
       ansible.playbook = "test-docker.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
+    end
+  end
+  config.vm.define "docker-buster" do |docker|
+    docker.vm.box = "debian/buster64"
+
+    docker.vm.network "forwarded_port", guest: 8008, host: 8011
+    docker.vm.network "forwarded_port", guest: 8448, host: 8451
+
+    docker.vm.provision "ansible" do |ansible|
+      ansible.playbook = "test-docker.yml"
+      ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
     end
   end
 end
