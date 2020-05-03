@@ -34,6 +34,8 @@
     - role: geerlingguy.postgresql
       postgresql_databases:
         - name: "{{ dbname }}"
+          lc_collate: C
+          lc_ctype: C
       postgresql_users:
         - name: "{{ dbuser }}"
           password: "{{ dbpw }}"
